@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="http://girlswhocode.com/wp-content/themes/gwc/favicon.ico">
+  <link rel="icon" type="image/png" href="http://girlswhocode.com/apple-icon.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
@@ -26,9 +26,11 @@
 
 
   <body>
+    <iframe src="https://docs.google.com/a/girlswhocode.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/formResponse" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0" class="hidden">Loading...</iframe>
     <div class="nav">
       <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/GWC_logo_2016_.png/220px-GWC_logo_2016_.png" id="site-logo"></a>
     </div>
+    <form action="https://docs.google.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/formResponse?embedded=true" target="_self" method="POST" id="mG61Hd">
     <div class="container-fluid col-md-8 col-md-offset-2">
       <h1>Education Team SIP 2016 Observation Feedback</h1>
       <h2>General Information</h2>
@@ -48,10 +50,16 @@
 
           $(".js-example-data-array").select2({
             data: classroom_names
-            })
+          });
           $(".js-example-data-array-selected").select2({
             data: classroom_names
-            })
+          });
+
+          var classroom;
+        	$('#classroom').on('change', function() {
+        			var temp = $(this).val();
+        			classroom = classroom_names[temp].text
+        		});
 
           </script>
           <br>
@@ -68,34 +76,45 @@
 
             $(".js-example-data-array").select2({
               data: weeks
-              })
+            });
             $(".js-example-data-array-selected").select2({
               data: weeks
-              })
+            });
+
+            var week;
+          	$('#week').on('change', function() {
+          			week = $(this).val();
+          		});
 
             </script>
 
           <br>
           <br>
           <label>Which styles of work did you observe?</label>
-          <select class="js-example-basic-multiple" multiple="multiple" id="workstyles">
+          <select class="js-example-basic-multiple-w" multiple="multiple" id="workstyles">
           </select>
           <script type="text/javascript">
             workstyles = [{id: 0, text:"Individual"}, {id: 1, text:"Small Group"}, {id: 2, text:"Whole Group"}, {id: 3, text:"Lecture"}];
 
-            $(".js-example-basic-multiple").select2({
+            $(".js-example-basic-multiple-w").select2({
               data: workstyles
               })
-            $(".js-example-data-basic-multiple").select2({
+            $(".js-example-data-basic-multiple-w").select2({
               data: workstyles
               })
+            var workstyle_temp = [];
+          	$('#workstyles').on('change', function() {
+                workstyle_temp = $(".js-example-basic-multiple-w").val();
+                //console.log(temp)
+          		});
+
 
             </script>
             <br><br>
 
           <div class="form-group">
             <label for="comment">Briefly describe the lesson being taught:</label>
-            <textarea class="form-control" rows="5" id="lessonDescription" name="lesson_description"></textarea>
+            <textarea class="form-control" rows="5" id="lesson_description" name="lesson_description"></textarea>
           </div>
 
       </div>
@@ -200,8 +219,8 @@
         <br>
         <br>
         <div class="form-group">
-          <label for="comment">Additional Comments / Clarifications?:</label>
-          <textarea class="form-control" rows="5" id="PlanningComments"></textarea>
+          <label for="comment">Additional Comments / Clarifications:</label>
+          <textarea class="form-control" rows="5" id="planning_comments"></textarea>
         </div>
       </div>
 
@@ -248,19 +267,35 @@
             <label><input type="checkbox" name="student_wrk" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
+        <script>
+          var student_wrk;
+
+          function showSelectedValues()
+            {
+              student_wrk = $("input[name=student_wrk]:checked").map(
+                 function () {return this.value;}).get().join(",");
+            }
+
+          </script>
 
         <label>Which platforms did you see students and/or teachers use?</label>
-        <select class="js-example-basic-multiple" multiple="multiple" id="platforms">
+        <select class="js-example-basic-multiple-p" multiple="multiple" id="platforms">
         </select>
         <script type="text/javascript">
           platforms = [{id: 0, text:"Canvas"}, {id: 1, text:"Google Docs"}, {id: 2, text:"Piazza"}, {id: 3, text:"Other"}];
 
-          $(".js-example-basic-multiple").select2({
+          $(".js-example-basic-multiple-p").select2({
             data: platforms
             })
-          $(".js-example-data-basic-multiple").select2({
+          $(".js-example-data-basic-multiple-p").select2({
             data: platforms
             })
+
+            var platform_temp = [];
+          	$('#platforms').on('change', function() {
+                platform_temp = $(".js-example-basic-multiple-p").val();
+                //console.log(temp)
+          		});
 
           </script>
           <br><br>
@@ -286,16 +321,17 @@
             <label>Is immediate action necessary?</label>
             <br>
             <div class="radio" id="intervention">
-              <label class="radio"><input type="radio" name="intervention" value="yes-">Yes, someone should intervene immediately.</label>
+              <label class="radio"><input type="radio" name="intervention" value="Intervention">Yes, someone should intervene immediately.</label>
             </div>
             <div class="radio">
-              <label class="radio"><input type="radio" name="intervention" value="yes+">Yes, this classroom was so awesome, we should highlight the work they are doing!</label>
+              <label class="radio"><input type="radio" name="intervention" value="Highlight">Yes, this classroom was so awesome, we should highlight the work they are doing!</label>
             </div>
             <div class="radio">
-              <label class="radio"><input type="radio" name="intervention" value="no">No.</label>
+              <label class="radio"><input type="radio" name="intervention" value="No">No.</label>
             </div>
           </div>
         </div>
+      </form>
 
         <div class="span7 text-center">
             <button type="button" class="btn btn-primary" id="button_submit">Submit</button>
