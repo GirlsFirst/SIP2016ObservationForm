@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="http://girlswhocode.com/wp-content/themes/gwc/favicon.ico">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -35,7 +35,7 @@
 
       <div class="well">
         <label for="usr">Your Name:</label>
-        <input type="text" class="form-control" id="first_name">
+        <input type="text" class="form-control" id="name" name="name">
 
         <br>
 
@@ -59,7 +59,7 @@
 
           <label for="usr">Select a Week:</label>
           <br>
-          <select class="js-example-data-array" id="classroom">
+          <select class="js-example-data-array" id="week">
             <option value="-1" selected="selected">Select a Week</option>
           </select>
           <script type="text/javascript">
@@ -78,7 +78,7 @@
           <br>
           <br>
           <label>Which styles of work did you observe?</label>
-          <select class="js-example-basic-multiple" multiple="multiple" id="speakers">
+          <select class="js-example-basic-multiple" multiple="multiple" id="workstyles">
           </select>
           <script type="text/javascript">
             workstyles = [{id: 0, text:"Individual"}, {id: 1, text:"Small Group"}, {id: 2, text:"Whole Group"}, {id: 3, text:"Lecture"}];
@@ -95,106 +95,106 @@
 
           <div class="form-group">
             <label for="comment">Briefly describe the lesson being taught:</label>
-            <textarea class="form-control" rows="5" id="lessonDescription"></textarea>
+            <textarea class="form-control" rows="5" id="lessonDescription" name="lesson_description"></textarea>
           </div>
 
       </div>
 
       <h2>Planning</h2>
       <div class="well">
-        <div class="form-group">
+        <div class="form-group" id="gwc_curriculum">
           <label>Is the teacher using GWC curriculum?</label>
           <br>
-          <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
-          <label class="radio-inline"><input type="radio" name="optradio">No</label>
-          <label class="radio-inline"><input type="radio" name="optradio">I did not observe enough to say.</label>
+          <label class="radio-inline"><input type="radio" name="gwc_curriculum" value="yes">Yes</label>
+          <label class="radio-inline"><input type="radio" name="gwc_curriculum" value="no">No</label>
+          <label class="radio-inline"><input type="radio" name="gwc_curriculum" value="n/a">I did not observe enough to say.</label>
         </div>
 
         <br>
 
-        <div class="form-group">
+        <div class="form-group" id="teacher_prep">
           <label>Does the teacher demonstrate familiarity with the lesson plan?</label>
           <br>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teacher always knows what is coming up in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="teacher_prep" value="3">The teacher always knows what is coming up in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teacher usually knows what is coming up in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="teacher_prep" value="2">The teacher usually knows what is coming up in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teacher rarely knows what is coming next in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="teacher_prep" value="1">The teacher rarely knows what is coming next in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teacher never knows what is coming next in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="teacher_prep" value="0">The teacher never knows what is coming next in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">I did not observe enough to say.</label>
+            <label class="radio"><input type="radio" name="teacher_prep" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
 
         <br>
 
-        <div class="form-group">
+        <div class="form-group" id="ta_prep">
           <label>Do the TAs demonstrate familiarity with the lesson plan?</label>
           <br>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">Both TAs always knows what is coming up in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="ta_prep" value="3">Both TAs always knows what is coming up in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">One of the TAs knows what is coming up in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="ta_prep" value="2">One of the TAs knows what is coming up in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">Both of the TAs have know more or less what is coming next in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="ta_prep" value="1">Both of the TAs have know more or less what is coming next in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">Neither of the TAs know what is coming next in the lesson plan.</label>
+            <label class="radio"><input type="radio" name="ta_prep" value="0">Neither of the TAs know what is coming next in the lesson plan.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">I did not observe enough to say.</label>
+            <label class="radio"><input type="radio" name="ta_prep" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
 
         <br>
 
-        <div class="form-group">
+        <div class="form-group" id="differentiation">
           <label>Did the teaching team plan for differing student learning needs?</label>
           <br>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team was aware of, and planned for most of the student learning needs.</label>
+            <label class="radio"><input type="radio" name="differentiation" value="3">The teaching team was aware of, and planned for most of the student learning needs.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team planned for some student learning needs.</label>
+            <label class="radio"><input type="radio" name="differentiation" value="2">The teaching team planned for some student learning needs.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team did not actively plan for differing student learning needs, but adapted the lesson on the spot.</label>
+            <label class="radio"><input type="radio" name="differentiation" value="1">The teaching team did not actively plan for differing student learning needs, but adapted the lesson on the spot.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team did not plan for differing student learning needs and did not adapt their lesson as the needs arose.</label>
+            <label class="radio"><input type="radio" name="differentiation" value="0">The teaching team did not plan for differing student learning needs and did not adapt their lesson as the needs arose.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">I did not observe enough to say.</label>
+            <label class="radio"><input type="radio" name="differentiation" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
 
         <br>
 
-        <div class="form-group">
+        <div class="form-group" id="check_understanding">
           <label>Did the teaching team plan checks for understanding?</label>
           <br>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team planned a variety of checks for understanding and got a varied sample of student responses.</label>
+            <label class="radio"><input type="radio" name="check_understanding" value="3">The teaching team planned a variety of checks for understanding and got a varied sample of student responses.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team planned a few (>2) checks for understanding, but did not get a representative sample of student responses.</label>
+            <label class="radio"><input type="radio" name="check_understanding" value="2">The teaching team planned a few (>2) checks for understanding, but did not get a representative sample of student responses.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team relied solely on the checks for understanding provided by the GWC curriculum.</label>
+            <label class="radio"><input type="radio" name="check_understanding" value="1">The teaching team relied solely on the checks for understanding provided by the GWC curriculum.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team did not plan any checks for understanding.</label>
+            <label class="radio"><input type="radio" name="check_understanding" value="0">The teaching team did not plan any checks for understanding.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">I did not observe enough to say.</label>
+            <label class="radio"><input type="radio" name="check_understanding" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
         <br>
@@ -207,50 +207,50 @@
 
       <h2>Instruction</h2>
       <div class="well">
-        <div class="form-group">
+        <div class="form-group" id="class_env">
           <label>What was the classroom culture like?</label>
           <br>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team demonstrates respect for and rapport with the students while creating a challenging learning environment that provides opportunities to express varied perspectives.</label>
+            <label class="radio"><input type="radio" name="class_env" value="3">The teaching team demonstrates respect for and rapport with the students while creating a challenging learning environment that provides opportunities to express varied perspectives.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team demonstrates respect and rapport with the students and provides a positive, low-risk learning environment that reveals mutual respect between students.</label>
+            <label class="radio"><input type="radio" name="class_env" value="2">The teaching team demonstrates respect and rapport with the students and provides a positive, low-risk learning environment that reveals mutual respect between students.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">The teaching team demonstrates respect for the students and provides a learning environment that serves primarily to control student behavior.</label>
+            <label class="radio"><input type="radio" name="class_env" value="1">The teaching team demonstrates respect for the students and provides a learning environment that serves primarily to control student behavior.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">My observation revealed disrespectful interactions between the teaching team and the students OR students' disruptive behavior dominated the classroom enviornment.</label>
+            <label class="radio"><input type="radio" name="class_env" value="0">My observation revealed disrespectful interactions between the teaching team and the students OR students' disruptive behavior dominated the classroom enviornment.</label>
           </div>
           <div class="radio">
-            <label class="radio"><input type="radio" name="optradio">I did not observe enough to say.</label>
+            <label class="radio"><input type="radio" name="class_env" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
 
         <br>
 
-        <div class="form-group">
+        <div class="form-group" id="student_wrk">
           <label>Was student work displayed or celebrated? Select all that apply.</label>
           <br>
           <div class="checkbox">
-            <label><input type="checkbox" value="">Student work was displayed on classroom walls.</label>
+            <label><input type="checkbox" name="student_wrk" value="walls">Student work was displayed on classroom walls.</label>
           </div>
           <div class="checkbox">
-            <label><input type="checkbox" value="">Students were given the opportunity to present their work.</label>
+            <label><input type="checkbox" name="student_wrk" value="present">Students were given the opportunity to present their work.</label>
           </div>
           <div class="checkbox">
-            <label><input type="checkbox" value="">Students were praised for a variety of solution strategies.</label>
+            <label><input type="checkbox" name="student_wrk" value="teacher praise">Students were praised for a variety of solution strategies.</label>
           </div>
           <div class="checkbox">
-            <label><input type="checkbox" value="">Students were discuss / praise / critique each other's work.</label>
+            <label><input type="checkbox" name="student_wrk" value="peer praise">Students were discuss / praise / critique each other's work.</label>
           </div>
           <div class="checkbox">
-            <label><input type="checkbox" value="">I did not observe enough to say.</label>
+            <label><input type="checkbox" name="student_wrk" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
 
         <label>Which platforms did you see students and/or teachers use?</label>
-        <select class="js-example-basic-multiple" multiple="multiple" id="speakers">
+        <select class="js-example-basic-multiple" multiple="multiple" id="platforms">
         </select>
         <script type="text/javascript">
           platforms = [{id: 0, text:"Canvas"}, {id: 1, text:"Google Docs"}, {id: 2, text:"Piazza"}, {id: 3, text:"Other"}];
@@ -266,12 +266,12 @@
           <br><br>
           <div class="form-group">
             <label for="comment">If you selected other, please explain:</label>
-            <textarea class="form-control" rows="3" id="InstructionComments"></textarea>
+            <textarea class="form-control" rows="3" id="platforms_other"></textarea>
           </div>
           <br>
           <div class="form-group">
             <label for="comment">Additional Comments / Clarifications:</label>
-            <textarea class="form-control" rows="5" id="InstructionComments"></textarea>
+            <textarea class="form-control" rows="5" id="instruction_comments"></textarea>
           </div>
         </div>
 
@@ -279,20 +279,20 @@
         <div class="well">
           <div class="form-group">
             <label for="comment">Anything Else?</label>
-            <textarea class="form-control" rows="5" id="InstructionComments"></textarea>
+            <textarea class="form-control" rows="5" id="add_comments"></textarea>
           </div>
 
           <div class="form-group">
             <label>Is immediate action necessary?</label>
             <br>
-            <div class="radio">
-              <label class="radio"><input type="radio" name="optradio">Yes, someone should intervene immediately.</label>
+            <div class="radio" id="intervention">
+              <label class="radio"><input type="radio" name="intervention" value="yes-">Yes, someone should intervene immediately.</label>
             </div>
             <div class="radio">
-              <label class="radio"><input type="radio" name="optradio">Yes, this classroom was so awesome, we should highlight the work they are doing!</label>
+              <label class="radio"><input type="radio" name="intervention" value="yes+">Yes, this classroom was so awesome, we should highlight the work they are doing!</label>
             </div>
             <div class="radio">
-              <label class="radio"><input type="radio" name="optradio">No.</label>
+              <label class="radio"><input type="radio" name="intervention" value="no">No.</label>
             </div>
           </div>
         </div>
@@ -311,3 +311,4 @@
         </div>
       </footer>
     </div>
+    <script src="js/postsheet.js"></script>

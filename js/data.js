@@ -8,7 +8,8 @@ var classroom_names = [{id: 0, text: 'Accenture Atlanta', speakers: [
 	{id: 0, text: 'Georgia Power'},
 	{id: 1, text: 'Josie Kressner'},
 	{id: 2, text: 'Titania Jordan'},
-	{id: 3, text: 'Clay Nelson'}
+	{id: 3, text: 'Clay Nelson'},
+	{id: 4, text: 'Other'}
 ]},
 {id: 2, text: 'AT&T Atlanta: Grace Hopper', speakers: [
 	{id: 0, text: 'Georgia Power'},
