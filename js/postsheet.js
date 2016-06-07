@@ -82,6 +82,7 @@ document.getElementById("button_submit").onclick = function () {
                     0: function (){
 
                         console.log("success 1")
+												location.href = "success.html"
                         //Success message
                     },
                     200: function (){
