@@ -53,7 +53,6 @@ document.getElementById("button_submit").onclick = function () {
 		"entry.519727649": classroom,
 		"entry.1832963573": week,
 		"entry.228496544": workstyle,
-		"entry.228496544": "Other",
 		"entry.1744508762": lesson_description,
 		"entry.796334582": gwc_curriculum,
 		"entry.696472251": teacher_prep,
