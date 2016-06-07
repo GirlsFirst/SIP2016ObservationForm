@@ -1,0 +1,110 @@
+/*
+@gwc-navy: #01426A;
+@gwc-teal: #6ECEB2;
+@gwc-pink: #F4364C;
+@gwc-yellow: #ECE81A;
+*/
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #555555;
+  margin: 0;
+  padding: 0;
+
+}
+
+select {
+    width: 100%;
+}
+
+h1 {
+  color: #01426A;
+  text-align: center;
+  padding-top: 150px;
+}
+
+h2 {
+  color: #01426A;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+h1 {
+  font-weight: bold;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+h3 {
+  color: #F4364C;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+details {
+  padding: 20px;
+  border: 1px solid #6ECEB2;
+}
+
+table, th, td {
+  border: 2px solid #F4364C;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+th {
+  font-weight: bold;
+}
+
+body{
+  padding-bottom: 50px;
+}
+
+.col-time {
+  width: 25%;
+}
+
+.col-event {
+  width: 30%;
+}
+
+.col-consider {
+  width: 45%;
+}
+
+.expanded {
+  padding: 15px;
+}
+
+.nav {
+  height: 100px;
+  width: 100%;
+  background: #01426A;
+  padding: 15px;
+}
+
+.nav img {
+  height: 100%;
+}
+
+.footertext {
+color: #AAA;
+text-align: center;
+font-size: 12px;
+}
+
+.navbar-text {
+    float: none;
+}
+
+.btn-primary {
+  background: #F4364C;
+  box-shadow: none;
+  border: none;
+}
