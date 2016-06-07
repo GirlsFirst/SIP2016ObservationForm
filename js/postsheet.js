@@ -48,14 +48,14 @@ document.getElementById("button_submit").onclick = function () {
 	var add_comments = jQuery('#add_comments').val();
 	var intervention = $('#intervention input:radio:checked').val();
 	var data = {
-		"entry.0": timestamp,
+		// "entry.0": timestamp,
 		"entry.720426743": name,
 		"entry.519727649": classroom,
-		"entry.1832963573": week,
+		"entry.1832963573": week.toString(),
 		"entry.228496544": workstyle,
 		"entry.228496544": "Other",
 		"entry.1744508762": lesson_description,
-		"entry.796334582": gwc_curriculum,
+		"entry.796334582": gwc_curriculum.toString(),
 		"entry.696472251": teacher_prep,
 		"entry.912888272": ta_prep,
 		"entry.512535547": differentiation,
@@ -64,50 +64,31 @@ document.getElementById("button_submit").onclick = function () {
 		"entry.1499365555": class_env,
 		"entry.1404500791": student_wrk,
 		"entry.1998386258": platform,
-		"entry.1998386258": platforms_other,
+		"entry.915932861": platforms_other,
 		"entry.1382768139": instruction_comments,
 		"entry.1062515501": add_comments,
 		"entry.1355691636": intervention
 	}
 
+
 	console.log(data)
 
-	var invocation = new XMLHttpRequest();
-	// var url = 'http://bar.other/resources/post-here/';
-	// var body = '<?xml version="1.0"?><person><name>Arun</name></person>';
 
-	function callOtherDomain(){
-	  if(invocation)
-	    {
-	      invocation.open('POST', sheet_url, true);
-	      invocation.setRequestHeader('X-PINGOTHER', 'pingpong');
-	      invocation.setRequestHeader('Content-Type', 'application/xml');
-	      //invocation.onreadystatechange = handler;
-	      invocation.send(data);
-	    }
-	}
+	jQuery.ajax({
+                url: sheet_url,
+                data: data,
+                type: "POST",
+                dataType: "xml",
+                statusCode: {
+                    0: function (){
 
-	callOtherDomain()
-	//
-	// jQuery.ajax({
-  //               url: sheet_url,
-  //               data: data,
-  //               type: "POST",
-  //               dataType: "xml",
-  //               statusCode: {
-  //                   0: function (){
-	//
-  //                       jQuery('#name').val("");
-  //                       jQuery('#email').val("");
-  //                       jQuery('#feed').val("");
-  //                       //Success message
-  //                   },
-  //                   200: function (){
-  //                       jQuery('#name').val("");
-  //                       jQuery('#email').val("");
-  //                       jQuery('#feed').val("");
-  //                       //Success Message
-  //                   }
-  //               }
-	// 						});
+                        console.log("success 1")
+                        //Success message
+                    },
+                    200: function (){
+                        console.log("success 2")
+                        //Success Message
+                    }
+                }
+							});
 }
