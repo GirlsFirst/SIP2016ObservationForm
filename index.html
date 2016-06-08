@@ -26,11 +26,9 @@
 
 
   <body>
-    <iframe src="https://docs.google.com/a/girlswhocode.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/formResponse" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0" class="hidden">Loading...</iframe>
     <div class="nav">
       <a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/GWC_logo_2016_.png/220px-GWC_logo_2016_.png" id="site-logo"></a>
     </div>
-    <form action="https://docs.google.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/formResponse?embedded=true" target="_self" method="POST" id="mG61Hd">
     <div class="container-fluid col-md-8 col-md-offset-2">
       <h1>Education Team SIP 2016 Observation Feedback</h1>
       <h2>General Information</h2>
@@ -267,16 +265,6 @@
             <label><input type="checkbox" name="student_wrk" value="n/a">I did not observe enough to say.</label>
           </div>
         </div>
-        <script>
-          var student_wrk;
-
-          function showSelectedValues()
-            {
-              student_wrk = $("input[name=student_wrk]:checked").map(
-                 function () {return this.value;}).get().join(",");
-            }
-
-          </script>
 
         <label>Which platforms did you see students and/or teachers use?</label>
         <select class="js-example-basic-multiple-p" multiple="multiple" id="platforms">
@@ -293,7 +281,7 @@
 
             var platform_temp = [];
           	$('#platforms').on('change', function() {
-                platform_temp = $(".js-example-basic-multiple-p").val();
+                platform_temp = $(".js-example-basic-multiple-p").val(); //array of values, not text
                 //console.log(temp)
           		});
 
@@ -333,7 +321,6 @@
             </div>
           </div>
         </div>
-      </form>
 
         <div class="span7 text-center">
             <button type="button" class="btn btn-primary" id="button_submit">Submit</button>

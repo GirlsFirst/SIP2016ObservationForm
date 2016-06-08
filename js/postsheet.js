@@ -1,16 +1,11 @@
 document.getElementById("button_submit").onclick = function () {
 	var sheet_url = "https://docs.google.com/a/girlswhocode.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/formResponse"
-	"https://docs.google.com/a/girlswhocode.com/forms/d/1mv8BgKb8Gx9MywnGfvozmwQfJ8MWy37i6T3rJOWudbc/viewform?embedded=true"
-	"https://docs.google.com/spreadsheets/d/1mCQyX57RJAiqa2VHhW7WX5JxKtJUyxtS-QRyJaeedc4/edit?usp=sharing"
 
-	var timestamp = new Date();
-	console.log(timestamp)
+	//Collect all form data. jQuery methods are text input boxes.
+	//input:radio:checked checks radio buttons inside a given div with id and finds the selected one.
+	//Multiselect need to create comma separated string from array thus the for loops.
+
 	var name = jQuery('#name').val();
-	console.log(name);
-
-	console.log(classroom);
-
-	console.log(week);
 
 	var workstyle = '';
 	for(i=0; i<workstyle_temp.length; i++){
@@ -19,9 +14,8 @@ document.getElementById("button_submit").onclick = function () {
 			workstyle += ", ";
 		}
 	}
-	console.log(workstyle);
+
 	var lesson_description = jQuery('#lesson_description').val();
-	console.log(lesson_description);
 	var gwc_curriculum = $('#gwc_curriculum input:radio:checked').val();
 	var teacher_prep = $('#teacher_prep input:radio:checked').val();
 	var ta_prep = $('#ta_prep input:radio:checked').val();
@@ -29,26 +23,28 @@ document.getElementById("button_submit").onclick = function () {
 	var check_understanding = $('#check_understanding input:radio:checked').val();
 	var planning_comments = jQuery('#planning_comments').val();
 	var class_env = $('#class_env input:radio:checked').val();
-	showSelectedValues();
 
-
-	console.log(student_wrk)
+	//checkboxes
+	var student_wrk = $("input[name=student_wrk]:checked").map(
+				 function () {
+					 return this.value;
+				 }).get().join(",");
 
 	var platform = '';
 	for(i=0; i<platform_temp.length; i++){
-		platform += platforms[platform_temp[i]].text;
+		platform += platforms[platform_temp[i]].text; //replaces values from the array with the associated text for more meaning
 		if(i != platform_temp.length - 1){
 			platform += ", ";
 		}
 	}
-	console.log(platform)
 
 	var platforms_other = jQuery('#platforms_other').val();
 	var instruction_comments = jQuery('#instruction_comments').val();
 	var add_comments = jQuery('#add_comments').val();
 	var intervention = $('#intervention input:radio:checked').val();
+
 	var data = {
-		// "entry.0": timestamp,
+		// Google Sheets automatically adds a timestamp
 		"entry.720426743": name,
 		"entry.519727649": classroom,
 		"entry.1832963573": week,
